@@ -26,7 +26,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					if (response.ok) {
 						contacts = await response.json();
 					} else {
-						console.log(`error: ${response.status} ${response.statusText}`);
+						alert("Contact already exists");
 					}
 				} catch (error) {
 					console.log("something failed");
