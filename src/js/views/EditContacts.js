@@ -4,12 +4,13 @@ import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
-function AddContact() {
+function EditContacts() {
 	const { store, actions } = useContext(Context);
-	const [name, setName] = useState("");
-	const [email, setEmail] = useState("");
-	const [phone, setPhone] = useState("");
-	const [adress, setAdress] = useState("");
+
+	const [editName, setEditName] = useState(store.editContact.full_name);
+	const [editEmail, setEditEmail] = useState(store.editContact.email);
+	const [editPhone, setEditPhone] = useState(store.editContact.phone);
+	const [editAddress, setEditAddress] = useState(store.editContact.address);
 
 	const { param } = useParams();
 
@@ -25,37 +26,43 @@ function AddContact() {
 								type="text"
 								className="form-control"
 								placeholder="Full Name"
-								onChange={e => setName(e.target.value)}
+								defaultValue={editName}
+								onChange={e => setEditName(e.target.value)}
 							/>
 						</div>
 						<div className="form-group">
 							<label>Email</label>
 							<input
 								type="email"
+								defaultValue={editEmail}
 								className="form-control"
 								placeholder="Enter email"
-								onChange={e => setEmail(e.target.value)}
+								onChange={e => setEditEmail(e.target.value)}
 							/>
 						</div>
 						<div className="form-group">
 							<label>Phone</label>
 							<input
 								type="phone"
+								defaultValue={editPhone}
 								className="form-control"
 								placeholder="Enter phone"
-								onChange={e => setPhone(e.target.value)}
+								onChange={e => setEditPhone(e.target.value)}
 							/>
 						</div>
 						<div className="form-group">
 							<label>Address</label>
 							<input
 								type="text"
+								defaultValue={editAddress}
 								className="form-control"
 								placeholder="Enter address"
-								onChange={e => setAdress(e.target.value)}
+								onChange={e => setEditAddress(e.target.value)}
 							/>
 						</div>
-						<Link to="/" onClick={e => actions.fetchCreateContact(name, email, phone, adress)}>
+						<Link
+							to="/"
+							onClick={e => actions.fetchEditContact(editName, editEmail, editPhone, editAddress)}>
 							<button type="button" className="btn btn-primary form-control">
 								save
 							</button>
@@ -70,4 +77,4 @@ function AddContact() {
 	);
 }
 
-export default AddContact;
+export default EditContacts;

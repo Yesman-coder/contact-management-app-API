@@ -1,25 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
-import PlaceHolder from "../../img/128.png";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-// import { useHistory } from "react-router-dom";
 
 export const ContactCard = props => {
-	// const [state, setState] = useState({
-	// 	//initialize state here
-	// });
-	// const history = useHistory();
-	const { store, actions } = useContext(Context);
+	const { actions } = useContext(Context);
 	return (
 		<>
 			<li className="list-group-item">
 				<div className="row w-100">
 					<div className="col-12 col-sm-6 col-md-3 px-0">
 						<img
-							src={PlaceHolder}
-							alt="Mike Anamendolla"
+							src="https://picsum.photos/128/128"
+							alt="Random Image"
 							className="rounded-circle mx-auto d-block img-fluid"
 						/>
 					</div>

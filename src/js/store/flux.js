@@ -1,5 +1,5 @@
 const baseUrl = "https://assets.breatheco.de/apis/fake/contact/";
-const agenda = "Agenda-Boris";
+const agenda = "Agenda-Yesman";
 const getState = ({ getStore, setStore, getActions }) => {
 	return {
 		store: {
